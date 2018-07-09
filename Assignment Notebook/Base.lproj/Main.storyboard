@@ -74,8 +74,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JiT-RV-gvw">
-                                <rect key="frame" x="62" y="253" width="250" height="150"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JiT-RV-gvw">
+                                <rect key="frame" x="62" y="253" width="250" height="130"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -97,6 +97,13 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Class Details" id="mOI-FS-AaM"/>
+                    <connections>
+                        <outlet property="assignmentTitleTextField" destination="yyW-zP-YlY" id="hhO-r8-8Zh"/>
+                        <outlet property="courseNameTextField" destination="lvP-ED-9bo" id="E44-yF-whI"/>
+                        <outlet property="descriptionTextField" destination="4Ey-dI-YAs" id="szI-xE-iQv"/>
+                        <outlet property="dueDateTextField" destination="ABO-cK-md1" id="SPV-DO-BBw"/>
+                        <outlet property="imageView" destination="JiT-RV-gvw" id="xwj-bg-FL7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
