@@ -11,7 +11,7 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [Any]()
+    var assignments = [Assignment]()
 
 
     override func viewDidLoad() {
@@ -39,9 +39,42 @@ class MasterViewController: UITableViewController {
 
     @objc
     func insertNewObject(_ sender: Any) {
-        objects.insert(NSDate(), at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+        let alert = UIAlertController(title: "Add Assignment", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Assignment Title"
+        }
+        alert.addTextField { (textField) in
+            textField.placeholder = "Course Name"
+        }
+        alert.addTextField { (textField) in
+            textField.placeholder = "Due Date"
+        }
+        alert.addTextField { (textField) in
+            textField.placeholder = "Description"
+        }
+        
+       //Cancel Button
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        //Add button
+        let insertAction = UIAlertAction(title: "Add", style: .default) { (action) in
+            let assignmentTitleTextField = alert.textFields![0] as UITextField
+            let courseNameTextField = alert.textFields![1] as UITextField
+            let dueDateTextField = alert.textFields![2] as UITextField
+            let descriptionTextField = alert.textFields![3] as UITextField
+            guard let image = UIImage(named: assignmentTitleTextField.text!) else {
+                print("missing \(assignmentTitleTextField.text)")
+                return }
+            //Step 8: I don't have an int value sooo
+            let assignment = Assignment(assignmentTitle: assignmentTitleTextField!, courseName: courseNameTextField!, dueDate: dueDateTextField!, description: descriptionTextField!, image: UIImagePNGRepresentation(image)!)
+            self.assignments.append(assignment)
+            self.tableView.reloadData()
+        }
+        
+        //displaying alert action thing
+        alert.addAction(insertAction)
+        present(alert, animated: true, completion: nil)
     }
 
     // MARK: - Segues
