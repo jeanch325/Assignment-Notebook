@@ -13,6 +13,7 @@
 		A262365220F3C1270019808E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A262365020F3C1270019808E /* Main.storyboard */; };
 		A262365420F3C1290019808E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A262365320F3C1290019808E /* Assets.xcassets */; };
 		A262365720F3C1290019808E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A262365520F3C1290019808E /* LaunchScreen.storyboard */; };
+		A262365F20F3C2DA0019808E /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A262365E20F3C2DA0019808E /* Assignment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A262365320F3C1290019808E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A262365620F3C1290019808E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A262365820F3C1290019808E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A262365E20F3C2DA0019808E /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				A262364A20F3C1270019808E /* AppDelegate.swift */,
 				A262364C20F3C1270019808E /* MasterViewController.swift */,
+				A262365E20F3C2DA0019808E /* Assignment.swift */,
 				A262364E20F3C1270019808E /* DetailViewController.swift */,
 				A262365020F3C1270019808E /* Main.storyboard */,
 				A262365320F3C1290019808E /* Assets.xcassets */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A262365F20F3C2DA0019808E /* Assignment.swift in Sources */,
 				A262364F20F3C1270019808E /* DetailViewController.swift in Sources */,
 				A262364D20F3C1270019808E /* MasterViewController.swift in Sources */,
 				A262364B20F3C1270019808E /* AppDelegate.swift in Sources */,
@@ -285,6 +289,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4W5L8TBYA9;
 				INFOPLIST_FILE = "Assignment Notebook/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,6 +307,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4W5L8TBYA9;
 				INFOPLIST_FILE = "Assignment Notebook/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
