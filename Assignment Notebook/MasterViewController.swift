@@ -30,6 +30,7 @@ class MasterViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,15 +60,15 @@ class MasterViewController: UITableViewController {
         
         //Add button
         let insertAction = UIAlertAction(title: "Add", style: .default) { (action) in
-            let assignmentTitleTextField = alert.textFields![0] as UITextField
-            let courseNameTextField = alert.textFields![1] as UITextField
+            let courseNameTextField = alert.textFields![0] as UITextField
+            let assignmentTitleTextField = alert.textFields![1] as UITextField
             let dueDateTextField = alert.textFields![2] as UITextField
             let descriptionTextField = alert.textFields![3] as UITextField
             guard let image = UIImage(named: assignmentTitleTextField.text!) else {
                 print("missing \(assignmentTitleTextField.text)")
                 return }
             //Step 8: I don't have an int value sooo
-            let assignment = Assignment(assignmentTitle: assignmentTitleTextField!, courseName: courseNameTextField!, dueDate: dueDateTextField!, description: descriptionTextField!, image: UIImagePNGRepresentation(image)!)
+            let assignment = Assignment(assignmentTitle: assignmentTitleTextField.text!, courseName: courseNameTextField.text!, dueDate: dueDateTextField.text!, description: descriptionTextField.text!, image: UIImagePNGRepresentation(image)!)
             self.assignments.append(assignment)
             self.tableView.reloadData()
         }
@@ -82,7 +83,7 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+                let object = assignments[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
@@ -98,14 +99,14 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return assignments.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        let object = assignments[indexPath.row]
+        cell.textLabel!.text = object.assignmentTitle
         return cell
     }
 
@@ -116,13 +117,30 @@ class MasterViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            objects.remove(at: indexPath.row)
+            assignments.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
+    
+    //re-ordering assignemnts
+    override func tableView(_ _tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let objectToMove = assignments.remove(at: sourceIndexPath.row)
+        assignments.insert(objectToMove, at: destinationIndexPath.row)
+    }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
 

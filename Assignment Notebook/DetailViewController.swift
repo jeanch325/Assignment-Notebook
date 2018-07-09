@@ -29,7 +29,7 @@ class DetailViewController: UIViewController {
         if let assignment = self.detailItem {
             if assignmentTitleTextField != nil {
                 courseNameTextField.text = assignment.courseName
-                assignmentTitleTextField.text = assignment.courseName
+                assignmentTitleTextField.text = assignment.assignmentTitle
                 dueDateTextField.text = assignment.dueDate
                 descriptionTextField.text = assignment.description
                 imageView.image = UIImage(data: assignment.image)

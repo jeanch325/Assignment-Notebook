@@ -9,15 +9,15 @@
 import UIKit
 
 class Assignment: Codable {
-    var courseName : String
     var assignmentTitle : String
+    var courseName : String
     var dueDate : String
     var description : String
     var image : Data
     
-    init(courseName: String, assignmentTitle: String, dueDate: String, description: String, image: Data) {
-        self.courseName = courseName
+    init(assignmentTitle: String, courseName: String, dueDate: String, description: String, image: Data) {
         self.assignmentTitle = assignmentTitle
+        self.courseName = courseName
         self.dueDate = dueDate
         self.description = description
         self.image = image
